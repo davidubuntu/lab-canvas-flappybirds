@@ -6,7 +6,7 @@ function Player(game) {
     this.img.width = 50;
     this.img.heigth = 40;
 
-    this.gravity = 0.50;
+    this.gravity = 0.30;
     this.vy = 5;
 
 
@@ -42,10 +42,11 @@ Player.prototype.newPos = function () {
 
 Player.prototype.setListeners = function () {
     document.onkeydown = function (event) {
+        event.preventDefault();
         if (event.keyCode == SPACE) {
             console.log("espacio");
-            // this.y -= 10;
-            // this.vy -= 20; 
+            this.y -= 10;
+            this.vy -= 20; 
         }
     }.bind(this);
 };
